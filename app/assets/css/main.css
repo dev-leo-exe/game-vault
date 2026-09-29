@@ -1,0 +1,232 @@
+@import "tailwindcss";
+
+@theme {
+  /* Surfaces and lines */
+  --color-paper: #f3ead8;
+  --color-paper-raised: #fbf6ea;
+  --color-paper-sunken: #e8dcc3;
+  --color-line: #d4c5a7;
+  --color-line-strong: #7a6c58;
+
+  /* Text */
+  --color-ink: #1c2230;
+  --color-ink-muted: #50586a;
+
+  /* Actions */
+  --color-primary: #1d3d6e;
+  --color-primary-deep: #10264d;
+  --color-on-primary: #f7f1e3;
+  --color-primary-soft: #dbe3ee;
+  --color-aqua: #cfe3e0;
+  --color-on-aqua: #10264d;
+  --color-peach: #f4c4a4;
+  --color-on-peach: #3a2616;
+  --color-peach-soft: #f8e3ce;
+
+  /* Art (decorative, never text) */
+  --color-sky-top: #f6c7ac;
+  --color-sky-mid: #fae5d4;
+  --color-sky-bottom: #c5ccd5;
+  --color-wave: #22467f;
+  --color-mist: #c5ccd5;
+  --color-slate: #6b7a8b;
+  --color-sand: #dcc6a0;
+  --color-cloud: #fffaf2;
+  --color-cloud-shade: #edc4af;
+  --color-sun: #ed5218;
+  --color-sun-glow: #fcc2a9;
+  --color-sea-far: #a3b7c7;
+  --color-earth: #6b4c30;
+  --color-foam: #fdfaf2;
+
+  /* Teams */
+  --color-team-a: #22467f;
+  --color-on-team-a: #f7f1e3;
+  --color-team-a-text: #22467f;
+  --color-team-a-soft: #d5dfee;
+  --color-team-b: #c43f16;
+  --color-on-team-b: #fff7f5;
+  --color-team-b-text: #b83a14;
+  --color-team-b-soft: #fee1d7;
+
+  /* Board tiles */
+  --color-tile: #fdfaf3;
+  --color-tile-selected: #dbe3ee;
+  --color-tile-a: #c4d1e8;
+  --color-on-tile-a: #22467f;
+  --color-tile-b: #eaa68c;
+  --color-on-tile-b: #7e270b;
+  --color-tile-neutral: #d6c29c;
+  --color-on-tile-neutral: #4a3522;
+  --color-assassin: #1c2230;
+  --color-on-assassin: #f3ead8;
+
+  /* Status */
+  --color-success: #1d6763;
+  --color-success-soft: #d2e7e2;
+  --color-warning: #855710;
+  --color-warning-soft: #f5e2bd;
+  --color-error: #7a1c24;
+  --color-error-soft: #f5d7cd;
+
+  /* Misc */
+  --color-seal: var(--color-ink);
+  --color-on-seal: var(--color-paper);
+  --color-focus: #1d3d6e;
+  --color-scrim: #0d1830a3;
+
+  /* Fonts */
+  --font-display: Fraunces, Georgia, serif;
+  --font-seal: "GV Seal", "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --font-sans: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+
+  /* Text styles */
+  --text-display-xl: 40px;
+  --text-display-xl--line-height: 44px;
+  --text-display-xl--font-weight: 700;
+  --text-display-xl--letter-spacing: -0.01em;
+  --text-display: 32px;
+  --text-display--line-height: 40px;
+  --text-display--font-weight: 600;
+  --text-title: 24px;
+  --text-title--line-height: 32px;
+  --text-title--font-weight: 600;
+  --text-heading: 20px;
+  --text-heading--line-height: 26px;
+  --text-heading--font-weight: 600;
+  --text-seal-label: 16px;
+  --text-seal-label--line-height: 20px;
+  --text-seal-label--font-weight: 700;
+  --text-seal-label--letter-spacing: 0.08em;
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 28px;
+  --text-body-lg--font-weight: 500;
+  --text-body: 16px;
+  --text-body--line-height: 24px;
+  --text-body--font-weight: 400;
+  --text-label: 16px;
+  --text-label--line-height: 20px;
+  --text-label--font-weight: 700;
+  --text-label--letter-spacing: 0.01em;
+  --text-word: 18px;
+  --text-word--line-height: 20px;
+  --text-word--font-weight: 700;
+  --text-clue: 22px;
+  --text-clue--line-height: 26px;
+  --text-clue--font-weight: 900;
+  --text-clue--letter-spacing: 0.04em;
+  --text-caption: 14px;
+  --text-caption--line-height: 20px;
+  --text-caption--font-weight: 500;
+
+  /* Numerals */
+  --text-timer: 40px;
+  --text-timer--line-height: 44px;
+  --text-timer--font-weight: 900;
+  --text-room-code: 32px;
+  --text-room-code--line-height: 40px;
+  --text-room-code--font-weight: 900;
+  --text-room-code--letter-spacing: 0.12em;
+  --text-score: 24px;
+  --text-score--line-height: 28px;
+  --text-score--font-weight: 900;
+
+  /* Spacing */
+  --spacing-tap-min: 44px;
+  --spacing-button-h: 52px;
+  --spacing-tabbar-h: 64px;
+  --spacing-avatar: 40px;
+
+  /* Radius */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* Shadows */
+  --shadow-print: 3px 3px 0 var(--print);
+  --shadow-pressed: 1px 1px 0 var(--print);
+  --shadow-float: var(--float);
+  --shadow-focus: 0 0 0 2px var(--color-paper), 0 0 0 5px var(--color-focus);
+
+  /* Transitions */
+  --ease-tide: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-swell: cubic-bezier(0.45, 0, 0.55, 1);
+}
+
+:root {
+  --print: #1c2230;
+  --float: 0 -8px 32px #10264d2e;
+  color-scheme: light dark;
+}
+
+:root {
+  @variant dark {
+  --print: #000000;
+  --float: 0 -8px 32px #000000cc, 0 -1px 0 #6e7a82;
+
+  --color-paper: #111416;
+  --color-paper-raised: #1b2024;
+  --color-paper-sunken: #0a0c0e;
+  --color-line: #2a3136;
+  --color-line-strong: #6e7a82;
+
+  --color-ink: #efe7d7;
+  --color-ink-muted: #a9b1b7;
+
+  --color-primary: #e2bf6e;
+  --color-primary-deep: #f3e4bf;
+  --color-on-primary: #16130b;
+  --color-primary-soft: #2d291d;
+  --color-aqua: #22333a;
+  --color-on-aqua: #dcecec;
+  --color-peach: #eeb09c;
+  --color-on-peach: #2a100b;
+  --color-peach-soft: #2b1f24;
+
+  --color-sky-top: #08090b;
+  --color-sky-mid: #1a1d22;
+  --color-sky-bottom: #4a2327;
+  --color-wave: #2e59b0;
+  --color-mist: #262d32;
+  --color-slate: #78848c;
+  --color-sand: #2e2a24;
+  --color-cloud: #c3c9cc;
+  --color-cloud-shade: #5b656c;
+  --color-sun: #d6313a;
+  --color-sun-glow: #4a1c22;
+  --color-sea-far: #161d22;
+  --color-earth: #d6b88e;
+  --color-foam: #f5f0e5;
+
+  --color-team-a: #6f93e0;
+  --color-on-team-a: #111416;
+  --color-team-a-text: #9fbcf7;
+  --color-team-a-soft: #172442;
+  --color-team-b: #c82a3e;
+  --color-on-team-b: #fff7f5;
+  --color-team-b-text: #f79aa4;
+  --color-team-b-soft: #3e1820;
+
+  --color-tile: #474f57;
+  --color-tile-selected: #4d4631;
+  --color-tile-a: #1d3163;
+  --color-on-tile-a: #9fbcf7;
+  --color-tile-b: #360e16;
+  --color-on-tile-b: #f79aa4;
+  --color-tile-neutral: #2c271e;
+  --color-on-tile-neutral: #e9dcc0;
+  --color-assassin: #000000;
+  --color-on-assassin: #efe7d7;
+
+  --color-success: #7fd3bf;
+  --color-success-soft: #13302b;
+  --color-warning: #f0c46e;
+  --color-warning-soft: #332810;
+  --color-error: #f59a82;
+  --color-error-soft: #3b1b15;
+
+  --color-focus: #e2bf6e;
+  --color-scrim: #000000c2;
+  }
+}
