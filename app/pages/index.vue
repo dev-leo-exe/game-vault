@@ -1,6 +1,9 @@
 <template>
   <div>
     <SkyHeader title="Game Vault" :eyebrow="greeting">
+      <template #start>
+        <ThemeToggle />
+      </template>
       <template #art>
         <MotifWave />
       </template>

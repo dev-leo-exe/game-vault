@@ -10,6 +10,9 @@ defineProps<{
     <div class="absolute inset-x-0 -bottom-px">
       <slot name="art" />
     </div>
+    <div class="absolute top-2 left-3 z-10">
+      <slot name="start" />
+    </div>
     <div class="absolute inset-x-4 top-14 flex items-start gap-3">
       <div class="min-w-0 flex-1">
         <p v-if="eyebrow" class="text-caption font-bold text-ink">{{ eyebrow }}</p>
