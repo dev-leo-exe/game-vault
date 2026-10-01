@@ -1,4 +1,22 @@
 @import "tailwindcss";
+@import "@fontsource/zen-kaku-gothic-new/latin-400.css";
+@import "@fontsource/zen-kaku-gothic-new/latin-500.css";
+@import "@fontsource/zen-kaku-gothic-new/latin-700.css";
+@import "@fontsource/zen-kaku-gothic-new/latin-900.css";
+
+@font-face {
+  font-family: Fraunces;
+  src: url("/fonts/Fraunces-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GV Seal";
+  src: url("/fonts/NotoSerifJP-Bold-seal.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
 
 @theme {
   /* Surfaces and lines */
@@ -152,6 +170,11 @@
   /* Transitions */
   --ease-tide: cubic-bezier(0.22, 0.61, 0.36, 1);
   --ease-swell: cubic-bezier(0.45, 0, 0.55, 1);
+}
+
+/* Fraunces' leaning letters only at 32px and up */
+@utility no-wonk {
+  font-variation-settings: "WONK" 0;
 }
 
 :root {
