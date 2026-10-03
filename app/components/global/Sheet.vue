@@ -37,7 +37,7 @@ onBeforeUnmount(() => watchKeyboard(false))
     :aria-label="title"
     :style="{ paddingBottom: `${keyboard}px` }"
     :class="{ 'h-[82%]': scroll }"
-    class="mx-auto mt-auto mb-0 max-h-[88%] w-full max-w-[560px] animate-rise rounded-t-lg border-t-2 border-ink bg-paper-raised text-ink shadow-float backdrop:animate-fade backdrop:bg-scrim motion-reduce:animate-none motion-reduce:backdrop:animate-none dark:border-line-strong"
+    class="mx-auto mt-auto mb-0 max-h-[88%] w-full max-w-[560px] translate-y-6 rounded-t-lg border-t-2 border-ink bg-paper-raised text-ink opacity-0 shadow-float transition-[translate,opacity,display,overlay] transition-discrete duration-320 ease-tide backdrop:bg-scrim backdrop:opacity-0 backdrop:transition-[opacity,display,overlay] backdrop:transition-discrete backdrop:duration-320 backdrop:ease-tide open:translate-y-0 open:opacity-100 open:duration-560 open:backdrop:opacity-100 open:backdrop:duration-560 starting:open:translate-y-6 starting:open:opacity-0 starting:open:backdrop:opacity-0 motion-reduce:transition-none motion-reduce:backdrop:transition-none dark:border-line-strong"
     @close="open = false"
     @click.self="open = false"
   >
