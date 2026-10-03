@@ -2,6 +2,7 @@
 import type { Tone } from '../utils/games'
 
 withDefaults(defineProps<{
+  to: string
   title: string
   players: string
   minutes: number
@@ -12,8 +13,8 @@ withDefaults(defineProps<{
 </script>
 
 <template>
-  <button
-    type="button"
+  <NuxtLink
+    :to="to"
     class="flex w-full overflow-hidden rounded-md border border-line-strong bg-paper-raised text-left text-ink shadow-print transition-[translate,box-shadow] duration-320 ease-tide focus-visible:shadow-focus focus-visible:outline-none active:translate-0.5 active:shadow-pressed"
     :class="wide ? 'flex-row' : 'flex-col'"
   >
@@ -39,5 +40,5 @@ withDefaults(defineProps<{
         </span>
       </div>
     </div>
-  </button>
+  </NuxtLink>
 </template>

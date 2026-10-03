@@ -2,8 +2,8 @@
 withDefaults(defineProps<{ variant?: 'primary' | 'secondary' }>(), { variant: 'primary' })
 
 const variants = {
-  primary: 'border-ink bg-primary text-on-primary shadow-print active:translate-0.5 active:shadow-pressed dark:border-primary',
-  secondary: 'border-line-strong bg-aqua text-on-aqua',
+  primary: 'bg-primary text-on-primary dark:border-primary',
+  secondary: 'bg-aqua text-on-aqua dark:border-line-strong',
 }
 
 const ripple = ref<{ id: number, x: number, y: number }>()
@@ -16,7 +16,7 @@ const onPointerDown = (event: PointerEvent) => {
 <template>
   <button
     type="button"
-    class="relative isolate inline-flex min-h-button-h items-center justify-center gap-2 overflow-hidden rounded-sm border-2 px-6 py-3 text-label transition-[translate,box-shadow] duration-320 ease-tide focus-visible:shadow-focus focus-visible:outline-none disabled:pointer-events-none disabled:opacity-45 disabled:shadow-none"
+    class="relative isolate inline-flex min-h-button-h items-center justify-center gap-2 overflow-hidden rounded-sm border-2 border-ink px-6 shadow-print active:translate-0.5 active:shadow-pressed py-3 text-label transition-[translate,box-shadow] duration-320 ease-tide focus-visible:shadow-focus focus-visible:outline-none disabled:pointer-events-none disabled:opacity-45 disabled:shadow-none"
     :class="variants[variant]"
     @pointerdown="onPointerDown"
   >

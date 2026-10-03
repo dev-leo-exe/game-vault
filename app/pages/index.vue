@@ -15,6 +15,7 @@
     <main>
       <GamePick v-if="pick">
         <GameCard
+          :to="`/games/${pick.id}`"
           :title="pick.title"
           :players="pick.players"
           :minutes="pick.minutes"
@@ -32,6 +33,7 @@
         <GameCard
           v-for="game in games"
           :key="game.id"
+          :to="`/games/${game.id}`"
           :title="game.title"
           :players="game.players"
           :minutes="game.minutes"

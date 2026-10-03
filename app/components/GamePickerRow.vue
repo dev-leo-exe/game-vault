@@ -32,7 +32,7 @@ const picked = defineModel<string>()
       <span class="text-caption text-ink-muted tabular-nums">{{ players }} players · {{ minutes }} min</span>
       <span
         v-if="note"
-        class="mt-1 self-start rounded-xs border border-line-strong bg-paper-raised px-2 py-px text-[13px] leading-4 font-bold"
+        class="mt-1.5 self-start rounded-xs border border-line px-1.5 py-1 text-[13px] leading-none font-bold text-ink-muted [text-box:trim-both_cap_alphabetic] group-has-checked:border-primary/40 group-has-checked:text-ink"
       >{{ note }}</span>
     </span>
     <span

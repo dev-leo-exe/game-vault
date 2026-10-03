@@ -8,6 +8,9 @@ export interface Game {
   tone: Tone
   blurb?: string
   note?: string
+  tagline?: string
+  teams?: number
+  languages?: number
 }
 
 export const toneClasses: Record<Tone, string> = {
@@ -19,7 +22,7 @@ export const toneClasses: Record<Tone, string> = {
 
 // Dummy data until the games come from Supabase
 export const dummyGames: Game[] = [
-  { id: 'codenames', title: 'Codenames', players: '4–10', minutes: 15, tone: 'indigo', blurb: 'Word association in two teams', note: 'Last played' },
+  { id: 'codenames', title: 'Codenames', players: '4–10', minutes: 15, tone: 'indigo', blurb: 'Word association in two teams', note: 'Last played', tagline: 'One word. Find them all.', teams: 2, languages: 2 },
   { id: 'moon-bluff', title: 'Moon Bluff', players: '3–8', minutes: 10, tone: 'dawn', note: 'New' },
   { id: 'ink-sketch', title: 'Ink Sketch', players: '3–12', minutes: 15, tone: 'aqua' },
   { id: 'mountain-pass', title: 'Mountain Pass', players: '2–6', minutes: 20, tone: 'sand' },
