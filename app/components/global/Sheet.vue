@@ -23,10 +23,25 @@ const watchKeyboard = (on: boolean) => {
   keyboard.value = 0
 }
 
-watch(open, (isOpen) => {
-  if (isOpen) dialog.value?.showModal()
-  else dialog.value?.close()
+const slideOut = (el: HTMLDialogElement) => {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return []
+  const timing = { duration: 320, easing: getComputedStyle(el).getPropertyValue('--ease-tide'), fill: 'forwards' } as const
+  return [
+    el.animate([{ translate: '0 24px', opacity: 0 }], timing),
+    el.animate([{ opacity: 0 }], { ...timing, pseudoElement: '::backdrop' }),
+  ]
+}
+
+watch(open, async (isOpen) => {
+  const el = dialog.value
+  if (!el) return
   watchKeyboard(isOpen)
+  if (isOpen) return el.showModal()
+  if (!el.open) return
+  const animations = slideOut(el)
+  await Promise.all(animations.map(animation => animation.finished))
+  if (!open.value) el.close()
+  animations.forEach(animation => animation.cancel())
 })
 onBeforeUnmount(() => watchKeyboard(false))
 </script>
@@ -37,7 +52,8 @@ onBeforeUnmount(() => watchKeyboard(false))
     :aria-label="title"
     :style="{ paddingBottom: `${keyboard}px` }"
     :class="{ 'h-[82%]': scroll }"
-    class="mx-auto mt-auto mb-0 max-h-[88%] w-full max-w-[560px] translate-y-6 rounded-t-lg border-t-2 border-ink bg-paper-raised text-ink opacity-0 shadow-float transition-[translate,opacity,display,overlay] transition-discrete duration-320 ease-tide backdrop:bg-scrim backdrop:opacity-0 backdrop:transition-[opacity,display,overlay] backdrop:transition-discrete backdrop:duration-320 backdrop:ease-tide open:translate-y-0 open:opacity-100 open:duration-560 open:backdrop:opacity-100 open:backdrop:duration-560 starting:open:translate-y-6 starting:open:opacity-0 starting:open:backdrop:opacity-0 motion-reduce:transition-none motion-reduce:backdrop:transition-none dark:border-line-strong"
+    class="mx-auto mt-auto mb-0 max-h-[88%] w-full max-w-[560px] animate-rise rounded-t-lg border-t-2 border-ink bg-paper-raised text-ink shadow-float backdrop:animate-fade backdrop:bg-scrim motion-reduce:animate-none motion-reduce:backdrop:animate-none dark:border-line-strong"
+    @cancel.prevent="open = false"
     @close="open = false"
     @click.self="open = false"
   >
