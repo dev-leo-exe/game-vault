@@ -191,6 +191,13 @@
   @keyframes fade {
     from { opacity: 0; }
   }
+
+  /* Foam ripple */
+  --animate-ripple: ripple 480ms var(--ease-tide);
+  @keyframes ripple {
+    from { opacity: 0.5; scale: 1; }
+    to { opacity: 0; scale: 28; }
+  }
 }
 
 /* Theme switch transitions */

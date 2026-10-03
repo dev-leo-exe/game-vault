@@ -3,14 +3,36 @@ defineProps<{ title: string }>()
 const open = defineModel<boolean>('open', { default: false })
 
 const dialog = useTemplateRef('dialog')
-watch(open, (isOpen) => (isOpen ? dialog.value?.showModal() : dialog.value?.close()))
+
+const keyboard = ref(0)
+const measureKeyboard = () => {
+  const view = window.visualViewport!
+  keyboard.value = Math.max(0, window.innerHeight - view.height - view.offsetTop)
+}
+const watchKeyboard = (on: boolean) => {
+  const view = window.visualViewport
+  if (!view) return
+  for (const event of ['resize', 'scroll']) {
+    if (on) view.addEventListener(event, measureKeyboard)
+    else view.removeEventListener(event, measureKeyboard)
+  }
+  keyboard.value = 0
+}
+
+watch(open, (isOpen) => {
+  if (isOpen) dialog.value?.showModal()
+  else dialog.value?.close()
+  watchKeyboard(isOpen)
+})
+onBeforeUnmount(() => watchKeyboard(false))
 </script>
 
 <template>
   <dialog
     ref="dialog"
     :aria-label="title"
-    class="mx-auto mt-auto mb-0 max-h-[88%] w-full max-w-[560px] animate-rise rounded-t-lg border-t-2 border-ink bg-paper-raised text-ink shadow-float backdrop:animate-fade backdrop:bg-scrim motion-reduce:animate-none motion-reduce:backdrop:animate-none dark:border-line-strong"
+    :style="{ marginBottom: `${keyboard}px` }"
+    class="mx-auto mt-auto max-h-[88%] w-full max-w-[560px] animate-rise rounded-t-lg border-t-2 border-ink bg-paper-raised text-ink shadow-float backdrop:animate-fade backdrop:bg-scrim motion-reduce:animate-none motion-reduce:backdrop:animate-none dark:border-line-strong"
     @close="open = false"
     @click.self="open = false"
   >
