@@ -31,8 +31,8 @@ onBeforeUnmount(() => watchKeyboard(false))
   <dialog
     ref="dialog"
     :aria-label="title"
-    :style="{ marginBottom: `${keyboard}px` }"
-    class="mx-auto mt-auto max-h-[88%] w-full max-w-[560px] animate-rise rounded-t-lg border-t-2 border-ink bg-paper-raised text-ink shadow-float backdrop:animate-fade backdrop:bg-scrim motion-reduce:animate-none motion-reduce:backdrop:animate-none dark:border-line-strong"
+    :style="{ paddingBottom: `${keyboard}px` }"
+    class="mx-auto mt-auto mb-0 max-h-[88%] w-full max-w-[560px] animate-rise rounded-t-lg border-t-2 border-ink bg-paper-raised text-ink shadow-float backdrop:animate-fade backdrop:bg-scrim motion-reduce:animate-none motion-reduce:backdrop:animate-none dark:border-line-strong"
     @close="open = false"
     @click.self="open = false"
   >

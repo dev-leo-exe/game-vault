@@ -18,7 +18,7 @@ const cellClass = (i: number) => {
   <label class="relative inline-flex gap-2">
     <input
       :value="code"
-      type="search"
+      type="text"
       name="room"
       enterkeyhint="go"
       autofocus
