@@ -14,7 +14,14 @@
 
     <main>
       <GamePick v-if="pick">
-        <GameCard v-bind="pick" blurb="Word association in two teams" wide>
+        <GameCard
+          :title="pick.title"
+          :players="pick.players"
+          :minutes="pick.minutes"
+          :tone="pick.tone"
+          :blurb="pick.blurb"
+          wide
+        >
           <template #art>
             <MotifWave />
           </template>
@@ -22,7 +29,14 @@
       </GamePick>
 
       <GameLibrary :count="games.length">
-        <GameCard v-for="game in games" :key="game.title" v-bind="game">
+        <GameCard
+          v-for="game in games"
+          :key="game.id"
+          :title="game.title"
+          :players="game.players"
+          :minutes="game.minutes"
+          :tone="game.tone"
+        >
           <template #art>
             <MotifWave />
           </template>
@@ -37,8 +51,6 @@ const hour = new Date().getHours()
 const greeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening'
 
 //dummy data for now, will be replaced with a fetch from the API in the future
-const games = [
-  { title: 'Codenames', players: '4–10', minutes: 15, tone: 'indigo' as const },
-]
+const games = dummyGames
 const pick = games[0]
 </script>

@@ -1,19 +1,14 @@
 <script setup lang="ts">
+import type { Tone } from '../utils/games'
+
 withDefaults(defineProps<{
   title: string
   players: string
   minutes: number
-  tone?: 'indigo' | 'dawn' | 'aqua' | 'sand'
+  tone?: Tone
   blurb?: string
   wide?: boolean
 }>(), { tone: 'dawn' })
-
-const tones = {
-  indigo: 'from-primary-soft to-mist dark:from-team-a-soft',
-  dawn: 'from-sky-top via-sky-mid via-55% to-sky-bottom',
-  aqua: 'from-paper-raised to-aqua',
-  sand: 'from-peach-soft to-sand',
-}
 </script>
 
 <template>
@@ -24,7 +19,7 @@ const tones = {
   >
     <div
       class="grain overflow-hidden border-line-strong bg-linear-to-b"
-      :class="[tones[tone], wide ? 'w-2/5 shrink-0 border-r' : 'aspect-16/10 border-b']"
+      :class="[toneClasses[tone], wide ? 'w-2/5 shrink-0 border-r' : 'aspect-16/10 border-b']"
     >
       <div class="absolute inset-x-0 -bottom-px">
         <slot name="art" />
