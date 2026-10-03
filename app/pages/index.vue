@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="grain flex-1">
     <SkyHeader title="Game Vault" :eyebrow="greeting">
       <template #start>
         <ThemeToggle />
