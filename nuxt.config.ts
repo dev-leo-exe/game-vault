@@ -14,7 +14,6 @@ export default defineNuxtConfig({
   },
   modules: ["@nuxtjs/supabase"],
   supabase: {
-    // No login page yet; the module otherwise redirects every route to /login
-    redirect: false,
+    redirectOptions: { login: "/login", callback: "/confirm" },
   },
 });

@@ -198,6 +198,26 @@
     from { opacity: 0.5; scale: 1; }
     to { opacity: 0; scale: 28; }
   }
+
+  /* Login scene animations */
+  --animate-drift: drift 140s linear infinite;
+  --animate-breathe: breathe 7s var(--ease-swell) infinite;
+  --animate-swell: swell 6s var(--ease-swell) infinite;
+  --animate-glint: glint 3.6s var(--ease-swell) infinite;
+  @keyframes drift {
+    from { translate: -130px 0; }
+    to { translate: 230px 0; }
+  }
+  @keyframes breathe {
+    50% { scale: 1.08; opacity: 0.75; }
+  }
+  @keyframes swell {
+    50% { translate: -2.5px -3px; }
+  }
+  @keyframes glint {
+    0%, 100% { opacity: 0.35; }
+    50% { opacity: 1; }
+  }
 }
 
 /* Theme switch transitions */
