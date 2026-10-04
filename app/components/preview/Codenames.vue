@@ -18,7 +18,7 @@ const tints = {
         v-for="tile in tiles"
         :key="tile.word"
         class="relative flex aspect-square min-w-0 items-center justify-center rounded-xs p-1 text-center text-[11px] leading-tight"
-        :class="tile.revealed ? `${tints[tile.revealed]} pt-4` : 'border border-line-strong bg-tile font-bold'"
+        :class="tile.revealed ? tints[tile.revealed] : 'border border-line-strong bg-tile font-bold'"
       >
         <MarkMist v-if="tile.revealed === 'neutral'" class="absolute top-1 right-1 size-3.5" />
         <MarkCrest v-else-if="tile.revealed" :team="tile.revealed" class="absolute top-1 right-1 size-3.5" />

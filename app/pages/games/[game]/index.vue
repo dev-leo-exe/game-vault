@@ -44,6 +44,14 @@ const { data: tryNext } = await useAsyncData(`try-next-${slug}`, async () =>
         <component :is="previews[game.id]" />
       </GameSection>
 
+      <GameSection v-if="game.steps" title="How a round goes">
+        <HowToPlay :steps="game.steps" />
+      </GameSection>
+
+      <GameSection :title="`You and ${game.title}`">
+        <RecordCard :stats="dummyStats" />
+      </GameSection>
+
       <GameSection v-if="tryNext?.length" title="Try next">
         <div class="grid grid-cols-2 gap-4">
           <GameCard

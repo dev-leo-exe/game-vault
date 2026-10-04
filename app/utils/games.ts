@@ -13,7 +13,22 @@ export interface Game {
   languages?: number
   about?: string[]
   tags?: string[]
+  steps?: { title: string, description: string }[]
 }
+
+export interface Stat {
+  label: string
+  value: string | number
+  meta?: string
+  fullRow?: boolean
+}
+
+export const dummyStats: Stat[] = [
+  { label: 'Played', value: 18 },
+  { label: 'Won', value: 11 },
+  { label: 'Best streak', value: 4 },
+  { label: 'Your best clue here', value: '“River” for 3', meta: 'Found by Aiko and Jun', fullRow: true },
+]
 
 export const toneClasses: Record<Tone, string> = {
   indigo: 'from-primary-soft to-mist dark:from-team-a-soft',
@@ -29,7 +44,13 @@ export const dummyGames: Game[] = [
       'Two teams race to find their words on a board of 25. Each team has one spymaster who can see which words belong to whom, and gives a single word as a clue, with a number for how many words it fits.',
       'The team talks it over and taps their guesses. Find all your words first, and stay away from the black one.',
     ],
-    tags: ['Wordplay', 'Two teams', 'Lots of talking', 'Easy to learn'] },
+    tags: ['Wordplay', 'Two teams', 'Lots of talking', 'Easy to learn'],
+    steps: [
+      { title: 'Split into two teams', description: 'Indigo and Crimson. Each picks a spymaster.' },
+      { title: 'The spymaster gives a clue', description: 'One word and a number, like “river, 3”.' },
+      { title: 'Guess together', description: 'Tap a word, then Guess. A wrong colour ends the turn.' },
+      { title: 'Avoid the black word', description: 'Pick it and your team loses at once.' },
+    ] },
   { id: 'moon-bluff', title: 'Moon Bluff', players: '3–8', minutes: 10, tone: 'dawn', note: 'New' },
   { id: 'ink-sketch', title: 'Ink Sketch', players: '3–12', minutes: 15, tone: 'aqua' },
   { id: 'mountain-pass', title: 'Mountain Pass', players: '2–6', minutes: 20, tone: 'sand' },
